@@ -1,0 +1,48 @@
+JavaScript & React - Higher Order Function and Component 🚀
+
+➡️ What are Higher-order function?
+Higher-order function is just a function which takes another function as an argument or returns a function as a result out of it is called higher order function.
+
+Whatever the function which is taking as input is also called as "callback function".
+
+🚩example:
+function display(myFunc){
+myFunc();
+}
+display(function(){
+console.log("Hello World");
+})
+
+display - is higher order function
+
+
+➡️ What are Higher-order component (HOCs)?
+Higher-order component is a function which takes another component as input and enhance it (noted: it will not modify the existing functionality) then it returns back, this function is only called higher order component.
+
+Functional component is also a normal JavaScript function and Higher order components/functions are pure functions which will not modify the incoming data and only it adds some extra/enhance it.
+
+🚩example:
+const ComponentOne = ({name}) => {
+return ( /*----piece of JSX---/)
+}
+
+const ComponentTwo = (ComponentOne) => {
+return (props) => { ⬅️ returns an enhanced function
+return ( ⬅️ function returns some piece of JSX
+<div>
+<h1>Added other details </h1>
+<ComponentOne {...props}/>
+</div> )
+}
+}
+
+Consumer Component -
+const EnhancedComponent = ComponentTwo(ComponentOne);
+
+using it like this
+<EnhancedComponent name={"Adarsha"} />
+
+
+ComponentTwo can be used in few cases where you want to add some extra details to it and show to user.
+
+We can achieve function currying in React using HOC's as shown above.
